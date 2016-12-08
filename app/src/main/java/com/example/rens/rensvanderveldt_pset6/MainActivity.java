@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.google.firebase.FirebaseApp;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseApp storage = FirebaseApp.getInstance();
+
         // Check for login remembrance.
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         if (sharedpreferences.getBoolean("login", false)){
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void forward() {
-        Intent goToSubmitActivity = new Intent(this, alarmeringen_activity.class);
+        Intent goToSubmitActivity = new Intent(this, AlarmView.class);
         startActivity(goToSubmitActivity);
     }
 
