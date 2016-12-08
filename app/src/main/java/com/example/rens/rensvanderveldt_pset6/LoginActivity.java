@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("password", password);
                     editor.apply();
                 }
+                // Else data doesn't get stored and on the next creation login data is requested again.
 
                 Intent goToAlarmView = new Intent(this, AlarmView.class);
                 startActivity(goToAlarmView);

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Rensvanderveldt-pset6.iml" filepath="$PROJECT_DIR$/Rensvanderveldt-pset6.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/rensvanderveldt-pset6.iml" filepath="$PROJECT_DIR$/rensvanderveldt-pset6.iml" />
     </modules>
