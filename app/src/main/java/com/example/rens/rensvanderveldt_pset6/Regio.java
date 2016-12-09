@@ -6,14 +6,13 @@ package com.example.rens.rensvanderveldt_pset6;
 
 public class Regio {
 
-    String code = null;
     String name = null;
-    boolean selected = false;
+    boolean select = false;
 
-    public Regio(String name, boolean selected) {
+    public Regio(String title, boolean selected) {
         super();
-        this.name = name;
-        this.selected = selected;
+        name = title;
+        select = selected;
     }
 
     public String getName(){
@@ -24,10 +23,10 @@ public class Regio {
     }
 
     public boolean isSelected() {
-        return selected;
+        return select;
     }
 
     public void setSelected(boolean selected) {
-        this.selected = selected;
+        this.select = selected;
     }
 }

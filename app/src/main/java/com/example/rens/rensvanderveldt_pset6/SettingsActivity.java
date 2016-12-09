@@ -38,25 +38,64 @@ public class SettingsActivity extends AppCompatActivity {
 
         //Array list of countries
         ArrayList<Regio> regioList = new ArrayList<Regio>();
-        Regio regio = new Regio("Afghanistan",false);
+        Regio regio = new Regio("Amsterdam-Amstelland",false);
         regioList.add(regio);
-        regio = new Regio("Albania",true);
+        regio = new Regio("Brabant-Noord",false);
         regioList.add(regio);
-        regio = new Regio("Algeria",false);
+        regio = new Regio("Brabant-Zuidoost",false);
         regioList.add(regio);
-        regio = new Regio("American Samoa",true);
+        regio = new Regio("Drenthe",false);
         regioList.add(regio);
-        regio = new Regio("Andorra",true);
+        regio = new Regio("Flevoland",false);
         regioList.add(regio);
-        regio = new Regio("Angola",false);
+        regio = new Regio("Friesland",false);
         regioList.add(regio);
-        regio = new Regio("Anguilla",false);
+        regio = new Regio("Gelderland-Midden",false);
+        regioList.add(regio);
+        regio = new Regio("Gelderland-Zuid",false);
+        regioList.add(regio);
+        regio = new Regio("Gooi-en-Vechtstreek",false);
+        regioList.add(regio);
+        regio = new Regio("Groningen",false);
+        regioList.add(regio);
+        regio = new Regio("Haaglanden",false);
+        regioList.add(regio);
+        regio = new Regio("Hollands-Midden",false);
+        regioList.add(regio);
+        regio = new Regio("Ijsselland",false);
+        regioList.add(regio);
+        regio = new Regio("Kennemerland",false);
+        regioList.add(regio);
+        regio = new Regio("Limburg-Noord",false);
+        regioList.add(regio);
+        regio = new Regio("Limburg-Zuid",false);
+        regioList.add(regio);
+        regio = new Regio("Midden-en-West-Brabant",false);
+        regioList.add(regio);
+        regio = new Regio("Noord-en-Oost-Gelderland",false);
+        regioList.add(regio);
+        regio = new Regio("Noord-Holland-Noord",false);
+        regioList.add(regio);
+        regio = new Regio("Rotterdam-Rijnmond",false);
+        regioList.add(regio);
+        regio = new Regio("Twente",false);
+        regioList.add(regio);
+        regio = new Regio("Utrecht",false);
+        regioList.add(regio);
+        regio = new Regio("Zaanstreek",false);
+        regioList.add(regio);
+        regio = new Regio("Zaanstreek-Waterland",false);
+        regioList.add(regio);
+        regio = new Regio("Limburg-Noord",false);
+        regioList.add(regio);
+        regio = new Regio("Zeeland",false);
+        regioList.add(regio);
+        regio = new Regio("Zuid-Holland-Zuid",false);
         regioList.add(regio);
 
         //create an ArrayAdaptar from the String Array
-        dataAdapter = new MyCustomAdapter(this,
-                R.layout.regio_info, regioList);
-        ListView listView = (ListView) findViewById(R.id.listView1);
+        dataAdapter = new MyCustomAdapter(this, R.layout.regio_info, regioList);
+        ListView listView = (ListView) findViewById(R.id.listviewSettings);
         // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
 
@@ -86,7 +125,6 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         private class ViewHolder {
-            TextView code;
             CheckBox name;
         }
 
@@ -102,7 +140,6 @@ public class SettingsActivity extends AppCompatActivity {
                 convertView = vi.inflate(R.layout.regio_info, null);
 
                 holder = new ViewHolder();
-                holder.code = (TextView) convertView.findViewById(R.id.code);
                 holder.name = (CheckBox) convertView.findViewById(R.id.checkBox1);
                 convertView.setTag(holder);
 
@@ -111,9 +148,7 @@ public class SettingsActivity extends AppCompatActivity {
                         CheckBox cb = (CheckBox) v ;
                         Regio regio = (Regio) cb.getTag();
                         Toast.makeText(getApplicationContext(),
-                                "Clicked on Checkbox: " + cb.getText() +
-                                        " is " + cb.isChecked(),
-                                Toast.LENGTH_LONG).show();
+                                "Toegevoegd: " + cb.getText(), Toast.LENGTH_LONG).show();
                         regio.setSelected(cb.isChecked());
                     }
                 });
@@ -123,7 +158,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
             Regio regio = regioList.get(position);
-            holder.code.setText(" (" +  regio.getCode() + ")");
             holder.name.setText(regio.getName());
             holder.name.setChecked(regio.isSelected());
             holder.name.setTag(regio);
@@ -137,14 +171,14 @@ public class SettingsActivity extends AppCompatActivity {
     private void checkButtonClick() {
 
 
-        Button myButton = (Button) findViewById(R.id.findSelected);
+        Button myButton = (Button) findViewById(R.id.button7);
         myButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 StringBuffer responseText = new StringBuffer();
-                responseText.append("The following were selected...\n");
+                responseText.append("U heeft de volgende regios geselecteerd:\n");
 
                 ArrayList<Regio> regioList = dataAdapter.regioList;
                 for(int i=0;i<regioList.size();i++){
